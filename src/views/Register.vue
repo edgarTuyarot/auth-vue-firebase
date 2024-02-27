@@ -1,10 +1,12 @@
 <template>
-    <h1>Registro</h1>
-    <form @submit.prevent="handleSubmit">
-        <input type="email" name="" id="" placeholder="Email" v-model.trim="email">
-        <input type="password" name="" id="" placeholder="Password" v-model.trim="password">
-        <button type="submit" :disabled="userStore.loadingUser">Crear Usuario</button>
-    </form>
+    <div class="container w-50 text-center mt-5">
+        <h1>Registrarse</h1>
+        <form @submit.prevent="handleSubmit" class="container w-50 text-center">
+            <input type="email" name="" id="" placeholder="Email" v-model.trim="email" class="form-control mt-1">
+            <input type="password" name="" id="" placeholder="Password" v-model.trim="password" class="form-control mt-1">
+            <button type="submit" :disabled="userStore.loadingUser" class="btn btn-outline-primary btn-sm mt-1">Registro</button>
+        </form>
+    </div>
 </template>
 <script setup>
 import {ref} from 'vue'

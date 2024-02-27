@@ -1,15 +1,22 @@
 <template>
-  <h1>App</h1>
-  <nav v-if="!userStore.loadingSession">
-    <RouterLink to="/" v-if="userStore.userData">Home || </RouterLink>
-    <RouterLink to="/login" v-if="!userStore.userData">Login || </RouterLink>
-    <RouterLink to="/register" v-if="!userStore.userData">Registro</RouterLink>
-    <button @click="userStore.logOut" :disabled="userStore.loadingUser" v-if="userStore.userData">Cerrar Sesion</button>
-  </nav>
+  <div v-if="!userStore.loadingSession">
+    
+    <nav class="d-flex justify-content-start" style="background-color: #e3f2fd;">
+      
+      <RouterLink to="/" v-if="userStore.userData" class="nav-link">Home</RouterLink>
+      <RouterLink to="/login" v-if="!userStore.userData" class="nav-link">Login </RouterLink>
+      <RouterLink to="/register" v-if="!userStore.userData" class="nav-link">Registro</RouterLink>
+      <button @click="userStore.logOut" :disabled="userStore.loadingUser" v-if="userStore.userData"
+        class="btn btn-outline-secondary m-1">Cerrar Sesion</button>
+  
+    </nav>
+  </div>
   <div v-else>
     Cargando..
   </div>
-  <RouterView></RouterView>
+  <div class="container">
+    <RouterView></RouterView>
+  </div>
 </template>
 
 <script setup>
